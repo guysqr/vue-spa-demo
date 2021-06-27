@@ -1,29 +1,25 @@
 version: 0.2
-env:
-  parameter-store:
-    REACT_APP_USERPOOL_ID: /pipeline-pwa-master/cognito_userpool
-    REACT_APP_CLIENT_ID: /pipeline-pwa-master/cognito_client_id
-    REACT_APP_API_KEY: /pipeline-pwa-master/api_key
+# env:
+#   parameter-store:
+#     REACT_APP_USERPOOL_ID: /pipeline-pwa-master/cognito_userpool
+#     REACT_APP_CLIENT_ID: /pipeline-pwa-master/cognito_client_id
+#     REACT_APP_API_KEY: /pipeline-pwa-master/api_key
 phases:
   install:
     commands:
       - npm i npm@latest -g
-      - pip install --upgrade pip
-      - pip install --upgrade awscli
   pre_build:
     commands:
       - npm install
   build:
     commands:
-      - export REACT_APP_NODE_ENV=$ENVIRONMENT
-      - echo REACT_APP_NODE_ENV=$REACT_APP_NODE_ENV
+      # - export REACT_APP_NODE_ENV=$ENVIRONMENT
+      # - echo REACT_APP_NODE_ENV=$REACT_APP_NODE_ENV
       - npm run build
 
 artifacts:
-  base-directory: build
+  base-directory: dist
   discard-paths: no
   files:
     - "**/*"
-  base-directory: build
   name: build-artifacts
-  discard-paths: no
