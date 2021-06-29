@@ -88,12 +88,28 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "HelloWorld",
   props: {
     msg: String,
   },
-};
+  methods: {
+    loadMessage(){
+      console.log("calling loadMessage")
+      axios.get('https://xm2a8xj5eb.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/')
+        .then(function( response ){
+          console.log(response)
+          this.msg = response.data.message;
+        }.bind(this));
+    }
+  },
+  mounted () {
+    this.loadMessage()
+  },
+}
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
