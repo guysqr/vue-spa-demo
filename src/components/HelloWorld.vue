@@ -2,7 +2,8 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
-      Here's an update. For a guide and recipes on how to configure / customize this
+      Here is some change. 
+      For a guide and recipes on how to configure / customize this
       project,<br />
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
@@ -97,7 +98,6 @@ export default {
   },
   methods: {
     loadMessage(){
-      console.log("calling loadMessage")
       axios.get('https://xm2a8xj5eb.execute-api.ap-southeast-2.amazonaws.com/Prod/hello/')
         .then(function( response ){
           console.log(response)
